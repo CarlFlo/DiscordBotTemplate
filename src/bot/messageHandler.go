@@ -4,8 +4,8 @@ import (
 	"log"
 	"strings"
 
-	"main/bot/structs"
-	"main/config"
+	"github.com/CarlFlo/GoDiscordBotTemplate/bot/structs"
+	"github.com/CarlFlo/GoDiscordBotTemplate/config"
 
 	"github.com/bwmarrin/discordgo"
 )

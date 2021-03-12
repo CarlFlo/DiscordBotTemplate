@@ -2,9 +2,10 @@ package bot
 
 import (
 	"fmt"
-	"main/bot/commands/cmdutils"
-	"main/bot/structs"
 	"sort"
+
+	"github.com/CarlFlo/GoDiscordBotTemplate/bot/commands/cmdutils"
+	"github.com/CarlFlo/GoDiscordBotTemplate/bot/structs"
 
 	"github.com/bwmarrin/discordgo"
 )

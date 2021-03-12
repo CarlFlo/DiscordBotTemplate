@@ -3,9 +3,9 @@ package commands
 import (
 	"log"
 
-	"main/bot/commands/cmdutils"
-	"main/bot/structs"
-	"main/config"
+	"github.com/CarlFlo/GoDiscordBotTemplate/bot/commands/cmdutils"
+	"github.com/CarlFlo/GoDiscordBotTemplate/bot/structs"
+	"github.com/CarlFlo/GoDiscordBotTemplate/config"
 
 	"github.com/bwmarrin/discordgo"
 )

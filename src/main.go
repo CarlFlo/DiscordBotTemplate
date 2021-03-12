@@ -7,10 +7,10 @@ import (
 	"sync"
 	"time"
 
-	"main/bot"
-	"main/bot/commands/cmdutils"
-	"main/config"
-	"main/utils"
+	"github.com/CarlFlo/GoDiscordBotTemplate/bot"
+	"github.com/CarlFlo/GoDiscordBotTemplate/bot/commands/cmdutils"
+	"github.com/CarlFlo/GoDiscordBotTemplate/config"
+	"github.com/CarlFlo/GoDiscordBotTemplate/utils"
 )
 
 // https://discordapp.com/oauth2/authorize?&client_id=643191140849549333&scope=bot&permissions=37211200

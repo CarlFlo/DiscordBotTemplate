@@ -1,7 +1,7 @@
 package bot
 
 import (
-	"main/config"
+	"github.com/CarlFlo/GoDiscordBotTemplate/config"
 
 	"github.com/bwmarrin/discordgo"
 )

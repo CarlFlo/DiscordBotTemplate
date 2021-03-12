@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"unicode"
 
-	"main/bot/commands"
-	"main/bot/structs"
+	"github.com/CarlFlo/GoDiscordBotTemplate/bot/commands"
+	"github.com/CarlFlo/GoDiscordBotTemplate/bot/structs"
 
 	"github.com/bwmarrin/discordgo"
 )

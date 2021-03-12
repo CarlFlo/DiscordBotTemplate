@@ -1,8 +1,9 @@
 package structs
 
 import (
-	"main/config"
 	"strings"
+
+	"github.com/CarlFlo/GoDiscordBotTemplate/config"
 )
 
 // CmdInput holds a command

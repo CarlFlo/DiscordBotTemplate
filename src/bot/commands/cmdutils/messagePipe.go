@@ -2,7 +2,8 @@ package cmdutils
 
 import (
 	"log"
-	"main/config"
+
+	"github.com/CarlFlo/GoDiscordBotTemplate/config"
 
 	"github.com/bwmarrin/discordgo"
 )
