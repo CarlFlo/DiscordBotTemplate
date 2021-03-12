@@ -19,13 +19,13 @@ linux: .linux build .windows
 
 #  Builder command
 build:
-	go build -o ./bin/${fNameSrc}.exe ./src/${fNameOut}.go
+	go build -o ./${fNameSrc}.exe ./${fNameOut}.go
 
 b: windows
 
 # Runs go.main with windows as default
 run: .windows
-	go run ./src/${fNameSrc}.go
+	go run ./${fNameSrc}.go
 
 r: run
 
