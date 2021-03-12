@@ -31,4 +31,4 @@ r: run
 
 # Runs executable
 execute:
-	./bin/${fNameOut}
+	./${fNameOut}
