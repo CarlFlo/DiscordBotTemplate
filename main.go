@@ -23,7 +23,7 @@ func init() {
 	log.Printf("Running on %s\n", runtime.GOOS)
 
 	if err := config.LoadConfiguration(); err != nil {
-		panic(err)
+		log.Fatalln(err)
 	}
 
 	// Loads all the valid commands into a map
@@ -38,7 +38,6 @@ func main() {
 
 	if err := bot.StartBot(); err != nil {
 		log.Fatalln(err)
-		return
 	}
 	log.Println("Bot is connected!")
 
