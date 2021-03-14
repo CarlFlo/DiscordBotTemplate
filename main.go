@@ -26,6 +26,11 @@ func init() {
 		log.Fatalln(err)
 	}
 
+	// Checks if bot token is present
+	if config.CONFIG.Token == "<TokenHere>" {
+		log.Fatalln("No token provided, check the configuration file")
+	}
+
 	// Loads all the valid commands into a map
 	bot.MapValidCommands()
 
