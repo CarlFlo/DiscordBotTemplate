@@ -33,9 +33,9 @@ type command struct {
 
 var validCommands = make(map[string]command)
 
-// MapValidCommands will initialize a map
+// mapValidCommands will initialize a map
 // with all the valid functions that can be run
-func MapValidCommands() {
+func mapValidCommands() {
 
 	/* all keys MUST be lowercase */
 	// Admin commands
