@@ -6,7 +6,6 @@ import (
 	"fmt"
 	"log"
 	"os"
-	"time"
 
 	"github.com/CarlFlo/GoDiscordBotTemplate/bot/commands/cmdutils"
 	"github.com/CarlFlo/GoDiscordBotTemplate/bot/structs"
@@ -81,14 +80,8 @@ func Presence(s *discordgo.Session, m *discordgo.MessageCreate, input structs.Cm
 		// Output to discord. Discord message limit is ~5 messages a second
 		go func() {
 			for _, line := range outputBuffer {
-				sendString(s, m, line)
-				time.Sleep(250 * time.Millisecond) // 4 messages a second
+				cmdutils.SendDirectMessage(s, m, fmt.Sprintf("```%s```", line))
 			}
 		}()
 	}
-}
-
-func sendString(s *discordgo.Session, m *discordgo.MessageCreate, output string) {
-
-	cmdutils.SendDirectMessage(s, m, fmt.Sprintf("```%s```", output))
 }

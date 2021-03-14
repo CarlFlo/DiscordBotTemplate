@@ -14,5 +14,6 @@ func readyHandler(s *discordgo.Session, ready *discordgo.Ready) {
 	s.UpdateStreamingStatus(0, statusMessage, "https://www.youtube.com/watch?v=3glxLWVkbSs")
 
 	//s.UpdateGameStatus(0, statusMessage)
+
 	log.Printf("Ready with %d guilds\n", len(s.State.Guilds))
 }
