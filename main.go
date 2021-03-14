@@ -33,12 +33,14 @@ func main() {
 
 	session := bot.StartBot()
 
+	time.Sleep(500 * time.Millisecond) // Added this sleep so the message under will come last
 	// Keeps bot from closing. Waits for CTRL-C
 	log.Printf("Now running. Press CTRL-C to exit\n")
 	sc := make(chan os.Signal, 1)
 	signal.Notify(sc, syscall.SIGINT, syscall.SIGTERM, os.Interrupt)
 	<-sc
+	log.Printf("Stopping!\n")
 
-	// Stops the bot
-	session.Close()
+	// Run cleanup code here
+	session.Close() // Stops the discord bot
 }

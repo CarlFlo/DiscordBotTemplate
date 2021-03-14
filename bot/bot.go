@@ -13,7 +13,7 @@ func StartBot() *discordgo.Session {
 
 	// Checks if bot token is present
 	if len(config.CONFIG.Token) == 0 {
-		log.Fatalln("No token provided!")
+		log.Fatalln("ERROR! No token provided!")
 	}
 
 	// Creates the bot/session
@@ -27,7 +27,7 @@ func StartBot() *discordgo.Session {
 
 	// Adds message handler (https://github.com/bwmarrin/discordgo/blob/37088aefec2241139e59b9b804f193b539be25d6/eventhandlers.go#L937)
 	session.AddHandler(messageHandler)
-	session.AddHandler(presenceUpdateHandler)
+	session.AddHandler(readyHandler)
 
 	// Attempts to open connection
 	err = session.Open()
