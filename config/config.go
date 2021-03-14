@@ -65,16 +65,16 @@ func createConfig() error {
 
 	// Default
 	configStruct := configStruct{
-		Token:                "TokenHere",
+		Token:                "",
 		BotPrefix:            ",",
 		Version:              "2021-03-12",
-		OwnerID:              "YourDiscordIDHere",
+		OwnerID:              "",
 		DispConfOnStart:      false,
 		BoundChannels:        []string{},
 		AllowDirectMessages:  true,
 		MessageHandlerBuffer: 5,
 		BotInfo: botInfo{
-			ClientID:   "BotIDHere",
+			ClientID:   "",
 			Permission: 37211200,
 		},
 		MessageProcessing: messageProcessing{
