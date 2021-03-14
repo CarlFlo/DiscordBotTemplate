@@ -10,7 +10,6 @@ import (
 	"time"
 
 	"github.com/CarlFlo/GoDiscordBotTemplate/bot"
-	"github.com/CarlFlo/GoDiscordBotTemplate/bot/commands/cmdutils"
 	"github.com/CarlFlo/GoDiscordBotTemplate/config"
 	"github.com/CarlFlo/GoDiscordBotTemplate/utils"
 )
@@ -37,8 +36,6 @@ func init() {
 	bot.MapValidCommands()
 
 	log.Printf("Version %s\n", config.CONFIG.Version)
-
-	go cmdutils.MessagePipeLoop()
 }
 
 func main() {
@@ -49,7 +46,7 @@ func main() {
 	// Keeps bot from closing. Waits for CTRL-C
 	log.Printf("Now running. Press CTRL-C to exit\n")
 	sc := make(chan os.Signal, 1)
-	signal.Notify(sc, syscall.SIGINT, syscall.SIGTERM, os.Interrupt, os.Kill)
+	signal.Notify(sc, syscall.SIGINT, syscall.SIGTERM, os.Interrupt)
 	<-sc
 
 	// Stops the bot

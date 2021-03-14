@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"sort"
 
-	"github.com/CarlFlo/GoDiscordBotTemplate/bot/commands/cmdutils"
 	"github.com/CarlFlo/GoDiscordBotTemplate/bot/structs"
 
 	"github.com/bwmarrin/discordgo"
@@ -63,9 +62,9 @@ func help(s *discordgo.Session, m *discordgo.MessageCreate, input structs.CmdInp
 
 	// Admins will get additional help
 	if input.IsAdmin() {
-		cmdutils.PipeChannelMessage(s, m.ChannelID, start+helpString+helpStringAdmin+end)
+		s.ChannelMessageSend(m.ChannelID, start+helpString+helpStringAdmin+end)
 	} else {
-		cmdutils.PipeChannelMessage(s, m.ChannelID, start+helpString+end)
+		s.ChannelMessageSend(m.ChannelID, start+helpString+end)
 	}
 
 }

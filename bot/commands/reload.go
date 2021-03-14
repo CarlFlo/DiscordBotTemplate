@@ -14,9 +14,9 @@ import (
 func Reload(s *discordgo.Session, m *discordgo.MessageCreate, input structs.CmdInput) {
 
 	if err := config.ReloadConfig(); err != nil {
-		log.Println("Could not reload config!")
+		log.Printf("Could not reload config! %s", err)
 		return
 	}
 
-	cmdutils.PipeDirectMessage(s, m, "Config reloaded")
+	cmdutils.SendDirectMessage(s, m, "Config reloaded")
 }

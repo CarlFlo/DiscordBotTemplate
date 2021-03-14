@@ -90,5 +90,5 @@ func Presence(s *discordgo.Session, m *discordgo.MessageCreate, input structs.Cm
 
 func sendString(s *discordgo.Session, m *discordgo.MessageCreate, output string) {
 
-	cmdutils.PipeDirectMessage(s, m, fmt.Sprintf("```%s```", output))
+	cmdutils.SendDirectMessage(s, m, fmt.Sprintf("```%s```", output))
 }

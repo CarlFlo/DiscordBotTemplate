@@ -16,11 +16,11 @@ func BotInvite(s *discordgo.Session, m *discordgo.MessageCreate, input structs.C
 
 	if len(config.CONFIG.BotInfo.ClientID) == 0 {
 		log.Printf("ClientID not set in config file")
-		cmdutils.PipeDirectMessage(s, m, "Unable to create bot invite. Contact the administrator")
+		cmdutils.SendDirectMessage(s, m, "Unable to create bot invite. Contact the administrator")
 		return
 	}
 
 	inviteLink := fmt.Sprintf("https://discordapp.com/oauth2/authorize?&client_id=%s&scope=bot&permissions=%d", config.CONFIG.BotInfo.ClientID, config.CONFIG.BotInfo.Permission)
 
-	cmdutils.PipeDirectMessage(s, m, inviteLink)
+	cmdutils.SendDirectMessage(s, m, inviteLink)
 }

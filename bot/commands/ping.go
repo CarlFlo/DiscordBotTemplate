@@ -10,5 +10,5 @@ import (
 // Ping - Sends back a 'Pong' message
 func Ping(s *discordgo.Session, m *discordgo.MessageCreate, input structs.CmdInput) {
 
-	cmdutils.PipeDirectMessage(s, m, "Pong!")
+	cmdutils.SendDirectMessage(s, m, "Pong!")
 }

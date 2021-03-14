@@ -1,7 +1,6 @@
 package commands
 
 import (
-	"github.com/CarlFlo/GoDiscordBotTemplate/bot/commands/cmdutils"
 	"github.com/CarlFlo/GoDiscordBotTemplate/bot/structs"
 
 	"github.com/bwmarrin/discordgo"
@@ -26,7 +25,7 @@ func Help(s *discordgo.Session, m *discordgo.MessageCreate, input structs.CmdInp
 	start := "```ini\n"
 	end := "[Note]\nCommands are not case sensitive.\n```"
 
-	cmdutils.PipeChannelMessage(s, m.ChannelID, start+output+end)
+	s.ChannelMessageSend(m.ChannelID, start+output+end)
 }
 
 func appendUserHelp(output *string) {
