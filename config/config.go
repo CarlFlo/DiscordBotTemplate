@@ -41,7 +41,6 @@ func ReloadConfig() error {
 
 // readConfig will read the config file
 func readConfig() error {
-	//log.Println("Reading from config file...")
 
 	file, err := ioutil.ReadFile("./config.json")
 
@@ -63,11 +62,11 @@ func readConfig() error {
 // createConfig creates the default config file
 func createConfig() error {
 
-	// Default
+	// Default config settings
 	configStruct := configStruct{
 		Token:                "",
 		BotPrefix:            ",",
-		Version:              "2021-03-12",
+		Version:              "2021-03-14",
 		OwnerID:              "",
 		DispConfOnStart:      false,
 		BoundChannels:        []string{},
@@ -79,7 +78,7 @@ func createConfig() error {
 		},
 		MessageProcessing: messageProcessing{
 			MessageLengthLimit:    1850,
-			MaxIncommingMsgLength: 100,
+			MaxIncommingMsgLength: 100, // Set to 0 for ignore
 		},
 	}
 

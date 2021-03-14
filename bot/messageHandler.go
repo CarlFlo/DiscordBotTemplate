@@ -26,8 +26,8 @@ func messageHandler(s *discordgo.Session, m *discordgo.MessageCreate) {
 			return
 		}
 
-		// Trim length if required
-		if len(m.Message.Content) > config.CONFIG.MessageProcessing.MaxIncommingMsgLength {
+		// Trim length if required. Igores if 0
+		if config.CONFIG.MessageProcessing.MaxIncommingMsgLength != 0 && len(m.Message.Content) > config.CONFIG.MessageProcessing.MaxIncommingMsgLength {
 			m.Message.Content = m.Message.Content[:config.CONFIG.MessageProcessing.MaxIncommingMsgLength]
 		}
 

@@ -16,7 +16,7 @@ func Clear() {
 		cmd := exec.Command("cmd", "/c", "cls")
 		cmd.Stdout = os.Stdout
 		cmd.Run()
-	case "darwin":
+	case "darwin": // Mac
 		fallthrough
 	case "linux":
 		cmd := exec.Command("clear")
