@@ -27,7 +27,7 @@ func init() {
 	}
 
 	// Checks if bot token is present
-	if config.CONFIG.Token == "<TokenHere>" {
+	if config.CONFIG.Token == "TokenHere" {
 		log.Fatalln("No token provided, check the configuration file")
 	}
 
