@@ -3,8 +3,10 @@ package main
 import (
 	"log"
 	"math/rand"
+	"os"
+	"os/signal"
 	"runtime"
-	"sync"
+	"syscall"
 	"time"
 
 	"github.com/CarlFlo/GoDiscordBotTemplate/bot"
@@ -41,18 +43,15 @@ func init() {
 
 func main() {
 
-	if err := bot.StartBot(); err != nil {
-		log.Fatalln(err)
-	}
+	session := bot.StartBot()
 	log.Println("Bot is connected!")
 
-	// Keeps bot from closing
-	stayOpen()
-}
+	// Keeps bot from closing. Waits for CTRL-C
+	log.Printf("Now running. Press CTRL-C to exit\n")
+	sc := make(chan os.Signal, 1)
+	signal.Notify(sc, syscall.SIGINT, syscall.SIGTERM, os.Interrupt, os.Kill)
+	<-sc
 
-func stayOpen() {
-
-	wg := sync.WaitGroup{}
-	wg.Add(1)
-	wg.Wait()
+	// Stops the bot
+	session.Close()
 }
