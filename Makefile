@@ -31,19 +31,14 @@ linux: .64Bitx86 .linux build .default
 mac: .64Bitx86 .mac build .default
 
 
-
-#  Builder command
+# Builder command
 build:
 	go build -o ./${fNameSrc}.exe ./${fNameOut}.go
 
 b: build
 
-# Runs go.main with windows as default
+# Runs go.main
 run:
 	go run ./${fNameSrc}.go
 
 r: run
-
-# Runs executable
-execute:
-	./${fNameOut}
