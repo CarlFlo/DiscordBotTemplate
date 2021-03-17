@@ -35,8 +35,6 @@ func StartBot() *discordgo.Session {
 		log.Fatalln(err)
 	}
 
-	log.Println("Bot is connected!")
-
 	// Returns session
 	return session
 }
