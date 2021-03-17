@@ -17,9 +17,9 @@ const (
 
 // Command type for sorting similar commands together
 const (
-	typeUser uint8 = iota
-	typeMisc
-	typeAdmin
+	typeGeneral uint8 = iota // General commands (All admin commands should be considered general)
+	typeUser                 // Commands for the users
+	typeMisc                 // Miscellaneous commands
 )
 
 type command struct {
@@ -42,24 +42,19 @@ func mapValidCommands() {
 	validCommands["reload"] = command{
 		function:           commands.Reload,
 		requiredPermission: enumAdmin,
-		commandType:        typeAdmin}
+		commandType:        typeGeneral}
 
 	validCommands["presence"] = command{
 		function:           commands.Presence,
 		requiredPermission: enumAdmin,
 		helpSyntax:         "[v verbose, d dump]",
-		commandType:        typeAdmin}
+		commandType:        typeGeneral}
 
-	// Perm User - User commands
+	// Perm User - General commands
 	validCommands["help"] = command{
-		function:           commands.Help,
-		requiredPermission: enumUser,
-		commandType:        typeUser}
-
-	validCommands["h"] = command{
 		function:           help,
 		requiredPermission: enumUser,
-		commandType:        typeUser}
+		commandType:        typeGeneral}
 
 	// Perm User - Misc commands
 	validCommands["ping"] = command{

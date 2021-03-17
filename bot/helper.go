@@ -2,7 +2,9 @@ package bot
 
 import (
 	"fmt"
+	"log"
 	"sort"
+	"strings"
 
 	"github.com/CarlFlo/GoDiscordBotTemplate/bot/structs"
 
@@ -12,44 +14,78 @@ import (
 var helpString string
 var helpStringAdmin string
 
+type typeHolder struct {
+	group    string
+	commands []string
+}
+
+// Generates the helpstring
+// Not super efficient but it works
 func generateHelp() {
 
-	helpUsr := []string{}
+	// The key is the 'commandType', followed by the commands for that type
+	helpUserMap := make(map[string][]string)
+	// Admin commands are all grouped together
 	helpAdmin := []string{}
 
-	helpString = "[User]\n"
-	helpStringAdmin = "\n[Admin]\n"
-
+	// Populate the helpUserMap map with the commandsand group them together
 	for cmd, data := range validCommands {
-
-		helpSyntax := ""
+		// Adds the extra syntax if the commands has it
 		if len(data.helpSyntax) > 0 {
-			helpSyntax = fmt.Sprintf(" %s", data.helpSyntax)
+			cmd += fmt.Sprintf(" %s", data.helpSyntax)
 		}
 
 		if data.requiredPermission == enumAdmin {
-			helpAdmin = append(helpAdmin, cmd+helpSyntax)
+			helpAdmin = append(helpAdmin, cmd)
 		} else {
-			helpUsr = append(helpUsr, cmd+helpSyntax)
+			// Adds the command to the correct groups string slice
+			commandType := commandTypeToString(data.commandType)
+			helpUserMap[commandType] = append(helpUserMap[commandType], cmd)
 		}
 	}
 
-	// Sort the commands
-	sort.Strings(helpUsr)
+	// Sorting the lists so the commands will be in order
 	sort.Strings(helpAdmin)
-
-	// Adds to string
-	for _, str := range helpUsr {
-		helpString += str + ", "
-	}
-	for _, str := range helpAdmin {
-		helpStringAdmin += str + ", "
+	for _, list := range helpUserMap {
+		sort.Strings(list)
 	}
 
-	// Trims the end
-	helpString = helpString[:len(helpString)-2]
-	helpStringAdmin = helpStringAdmin[:len(helpStringAdmin)-2]
+	// Transfer the helpUserMap data to a new list
+	th := []typeHolder{}
+	for group, list := range helpUserMap {
+		th = append(th, typeHolder{group, list})
+	}
 
+	// Sort by the group name so the groups will be in order
+	sort.SliceStable(th, func(i, j int) bool {
+		return th[i].group < th[j].group // Alphabetical order
+	})
+
+	// Create the help strings and caching the result
+	for _, e := range th {
+		// Saving the result for the users
+		helpString += fmt.Sprintf("[%s]\n%s\n", e.group, strings.Join(e.commands[:], ", "))
+	}
+
+	// Saves the results for the admins
+	helpStringAdmin = fmt.Sprintf("[%s]\n%s\n", "Admin", strings.Join(helpAdmin[:], ", "))
+
+}
+
+func commandTypeToString(key uint8) string {
+	cmdType := ""
+	switch key {
+	case typeGeneral:
+		cmdType = "General"
+	case typeUser:
+		cmdType = "User"
+	case typeMisc:
+		cmdType = "Misc"
+	default:
+		cmdType = "Unknown"
+		log.Printf("A command group type is unknown: %d\n", key)
+	}
+	return cmdType
 }
 
 /*
@@ -62,7 +98,7 @@ func help(s *discordgo.Session, m *discordgo.MessageCreate, input structs.CmdInp
 
 	// Admins will get additional help
 	if input.IsAdmin() {
-		s.ChannelMessageSend(m.ChannelID, start+helpString+helpStringAdmin+end)
+		s.ChannelMessageSend(m.ChannelID, start+helpStringAdmin+helpString+end)
 	} else {
 		s.ChannelMessageSend(m.ChannelID, start+helpString+end)
 	}
