@@ -1,5 +1,5 @@
-fNameSrc = main
-fNameOut = main
+fNameSrc = main.go
+fNameOut = main.exe
 
 # 64 bit x86 setting
 .64Bitx86:
@@ -8,14 +8,17 @@ fNameOut = main
 # Windows settings
 .windows:
 	go env -w GOOS=windows
+	$(eval fNameOut = main.exe)
 
 # Linux settings
 .linux:
 	go env -w GOOS=linux
+	$(eval fNameOut = main)
 
 # Mac OS X 10.8 and above
 .mac:
 	go env -w GOOS=darwin
+	$(eval fNameOut = main.app)
 
 # Default value
 .default: .64Bitx86 .windows
@@ -33,12 +36,12 @@ mac: .64Bitx86 .mac build .default
 
 # Builder command
 build:
-	go build -o ./${fNameSrc}.exe ./${fNameOut}.go
+	go build -o ./${fNameOut} ./${fNameSrc}
 
 b: build
 
 # Runs go.main
 run:
-	go run ./${fNameSrc}.go
+	go run ./${fNameSrc}
 
 r: run
