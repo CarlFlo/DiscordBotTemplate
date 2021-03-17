@@ -42,5 +42,6 @@ func main() {
 	log.Printf("Shutting down!\n")
 
 	// Run cleanup code here
+	close(sc)
 	session.Close() // Stops the discord bot
 }

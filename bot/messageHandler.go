@@ -78,6 +78,9 @@ func isDirectMessage(guildID string) bool {
 	return len(guildID) == 0
 }
 
+// Checks where the message comes from and checks it against rules to
+// allow or discard messages. Example: If it is a direct message while
+// direct messaging in turned off. Or from an unbound channel, if any exists.
 func validateMessageOrigin(guildID, channelID string) bool {
 
 	// Check if it is a private message
