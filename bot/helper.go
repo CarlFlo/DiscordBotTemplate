@@ -20,7 +20,7 @@ type typeHolder struct {
 }
 
 // Generates the helpstring
-// Not super efficient but it works
+// Not super efficient, but it works
 func generateHelp() {
 
 	// The key is the 'commandType', followed by the commands for that type
@@ -44,7 +44,7 @@ func generateHelp() {
 		}
 	}
 
-	// Sorting the lists so the commands will be in order
+	// Sorting the lists so the commands will be in alphabetical order
 	sort.Strings(helpAdmin)
 	for _, list := range helpUserMap {
 		sort.Strings(list)
@@ -56,9 +56,9 @@ func generateHelp() {
 		th = append(th, typeHolder{group, list})
 	}
 
-	// Sort by the group name so the groups will be in order
+	// Sort by the group name so the groups (General, misc, user ...) will be in alphabetical order
 	sort.SliceStable(th, func(i, j int) bool {
-		return th[i].group < th[j].group // Alphabetical order
+		return th[i].group < th[j].group
 	})
 
 	// Create the help strings and caching the result
