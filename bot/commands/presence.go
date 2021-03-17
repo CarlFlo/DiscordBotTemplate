@@ -60,28 +60,28 @@ func Presence(s *discordgo.Session, m *discordgo.MessageCreate, input structs.Cm
 
 	if dumpToFile {
 		// Output to file
-		go func() {
-			file, err := os.OpenFile("presenceOutput.txt", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+		file, err := os.OpenFile("presenceOutput.txt", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 
+		if err != nil {
+			log.Printf("Could not create presence output file: %s", err)
+			return
+		}
+
+		datawriter := bufio.NewWriter(file)
+		for _, data := range outputBuffer {
+			_, err = datawriter.WriteString(data + "\n")
 			if err != nil {
-				log.Printf("Could not create presence output file: %s", err)
-				return
+				log.Printf("%s\n", err)
 			}
+		}
 
-			datawriter := bufio.NewWriter(file)
-			for _, data := range outputBuffer {
-				_, _ = datawriter.WriteString(data + "\n")
-			}
+		datawriter.Flush()
+		file.Close()
 
-			datawriter.Flush()
-			file.Close()
-		}()
 	} else {
 		// Output to discord. Discord message limit is ~5 messages a second
-		go func() {
-			for _, line := range outputBuffer {
-				cmdutils.SendDirectMessage(s, m, fmt.Sprintf("```%s```", line))
-			}
-		}()
+		for _, line := range outputBuffer {
+			cmdutils.SendDirectMessage(s, m, fmt.Sprintf("```%s```", line))
+		}
 	}
 }

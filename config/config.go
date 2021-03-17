@@ -12,16 +12,15 @@ import (
 var CONFIG *configStruct
 
 type configStruct struct {
-	Token                string            `json:"token"`
-	BotPrefix            string            `json:"botPrefix"`
-	Version              string            `json:"version"`
-	OwnerID              string            `json:"ownerID"`
-	DispConfOnStart      bool              `json:"dispConfOnStart"`
-	BoundChannels        []string          `json:"boundChannels"`
-	AllowDirectMessages  bool              `json:"allowDirectMessages"`
-	MessageHandlerBuffer int               `json:"messageHandlerBuffer"`
-	BotInfo              botInfo           `json:"botInfo"`
-	MessageProcessing    messageProcessing `json:"messageProcessing"`
+	Token               string            `json:"token"`
+	BotPrefix           string            `json:"botPrefix"`
+	Version             string            `json:"version"`
+	OwnerID             string            `json:"ownerID"`
+	DispConfOnStart     bool              `json:"dispConfOnStart"`
+	BoundChannels       []string          `json:"boundChannels"`
+	AllowDirectMessages bool              `json:"allowDirectMessages"`
+	BotInfo             botInfo           `json:"botInfo"`
+	MessageProcessing   messageProcessing `json:"messageProcessing"`
 }
 
 type botInfo struct {
@@ -64,21 +63,20 @@ func createConfig() error {
 
 	// Default config settings
 	configStruct := configStruct{
-		Token:                "",
-		BotPrefix:            ",",
-		Version:              "2021-03-14",
-		OwnerID:              "",
-		DispConfOnStart:      false,
-		BoundChannels:        []string{},
-		AllowDirectMessages:  true,
-		MessageHandlerBuffer: 5,
+		Token:               "",
+		BotPrefix:           ",",
+		Version:             "2021-03-17",
+		OwnerID:             "",
+		DispConfOnStart:     false,
+		BoundChannels:       []string{},
+		AllowDirectMessages: true,
 		BotInfo: botInfo{
 			ClientID:   "",
 			Permission: 37211200,
 		},
 		MessageProcessing: messageProcessing{
-			MessageLengthLimit:    1850,
-			MaxIncommingMsgLength: 100, // Set to 0 for ignore
+			MessageLengthLimit:    1850, // The meximum length a send message can be before it will be split.
+			MaxIncommingMsgLength: 0,    // Set to 0 for ignore
 		},
 	}
 
