@@ -28,7 +28,8 @@ func generateHelp() {
 	// Admin commands are all grouped together
 	helpAdmin := []string{}
 
-	// Populate the helpUserMap map with the commandsand group them together
+	// Populate the helpUserMap map with the commands and group them together
+	// Hashmaps are inherently unpredictable in their order
 	for cmd, data := range validCommands {
 		// Adds the extra syntax if the commands has it
 		if len(data.helpSyntax) > 0 {
@@ -50,13 +51,13 @@ func generateHelp() {
 		sort.Strings(list)
 	}
 
-	// Transfer the helpUserMap data to a new list
+	// Transfer the helpUserMap data to a slice so that the categories can be sorted
 	th := []typeHolder{}
 	for group, list := range helpUserMap {
 		th = append(th, typeHolder{group, list})
 	}
 
-	// Sort by the group name so the groups (General, misc, user ...) will be in alphabetical order
+	// Sorts the command categories so they will be in alphabetical order
 	sort.SliceStable(th, func(i, j int) bool {
 		return th[i].group < th[j].group
 	})
