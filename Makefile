@@ -20,7 +20,7 @@ fNameOut = main.exe
 	go env -w GOOS=darwin
 	$(eval fNameOut = main.app)
 
-# Default value
+# Default value, change for your needs
 .default: .64Bitx86 .windows
 
 
@@ -35,13 +35,13 @@ mac: .64Bitx86 .mac build .default
 
 
 # Builder command
-build:
+build: .default
 	go build -o ./${fNameOut} ./${fNameSrc}
 
 b: build
 
 # Runs go.main
-run:
+run: .default
 	go run ./${fNameSrc}
 
 r: run
