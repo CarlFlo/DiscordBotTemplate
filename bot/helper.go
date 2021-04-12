@@ -19,8 +19,10 @@ type typeHolder struct {
 	commands []string
 }
 
-// Generates the helpstring
-// Not super efficient, but it works
+// This function automatically generates the output for the help command
+// It will generate two seperate strings, one for the users and one for the admins.
+// The admin contains command only admins should know and only they can use
+// The implementation is not super efficient, but it works
 func generateHelp() {
 
 	// The key is the 'commandType', followed by the commands for that type
@@ -89,9 +91,7 @@ func commandTypeToString(key uint8) string {
 	return cmdType
 }
 
-/*
- Automatically generate help
-*/
+// Automatically generate help for the user
 func help(s *discordgo.Session, m *discordgo.MessageCreate, input structs.CmdInput) {
 
 	start := "```ini\n"
