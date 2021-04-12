@@ -24,6 +24,8 @@ WORKDIR /app
 
 COPY --from=builder /app .
 
+CMD ["git", "pull"]
+
 # Changes the user to non-root. Reduces attack surface
 USER 1000
 
