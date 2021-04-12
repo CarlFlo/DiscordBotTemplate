@@ -14,5 +14,5 @@ func Debug(s *discordgo.Session, m *discordgo.MessageCreate, input structs.CmdIn
 
 	currentOS := runtime.GOOS
 
-	s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("**OS:** %s", currentOS))
+	s.ChannelMessageSend(m.ChannelID, fmt.Sprintf("OS: %s", currentOS))
 }
