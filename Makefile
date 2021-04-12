@@ -33,6 +33,8 @@ linux: .64Bitx86 .linux build .default
 # Build for 64 bit mac
 mac: .64Bitx86 .mac build .default
 
+docker:
+	docker build -t discord-bot .
 
 # Builder command
 build: .default
