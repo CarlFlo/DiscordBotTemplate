@@ -7,7 +7,9 @@ FROM golang:latest AS builder
 WORKDIR /app
 
 # Copy everything
-COPY . .
+#COPY . .
+
+CMD ["git", "clone", "https://github.com/CarlFlo/GoDiscordBotTemplate.git"]
 
 # Download requirements
 RUN go mod download
@@ -23,8 +25,6 @@ FROM alpine:latest
 WORKDIR /app
 
 COPY --from=builder /app .
-
-CMD ["git", "pull"]
 
 # Changes the user to non-root. Reduces attack surface
 USER 1000
