@@ -44,6 +44,11 @@ func mapValidCommands() {
 		requiredPermission: enumAdmin,
 		commandType:        typeGeneral}
 
+	validCommands["debug"] = command{
+		function:           commands.Debug,
+		requiredPermission: enumAdmin,
+		commandType:        typeGeneral}
+
 	validCommands["presence"] = command{
 		function:           commands.Presence,
 		requiredPermission: enumAdmin,
