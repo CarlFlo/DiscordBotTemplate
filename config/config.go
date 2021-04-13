@@ -65,7 +65,7 @@ func createConfig() error {
 	configStruct := configStruct{
 		Token:               "",
 		BotPrefix:           ",",
-		Version:             "2021-03-17",
+		Version:             "2021-04-13",
 		OwnerID:             "",
 		DispConfOnStart:     false,
 		BoundChannels:       []string{},
