@@ -4,12 +4,6 @@
 
 FROM golang:latest AS builder
 
-RUN apt-get update
-#RUN apt-get install -y git
-
-#RUN mkdir /app
-#RUN git clone https://github.com/CarlFlo/GoDiscordBotTemplate.git /app
-
 WORKDIR /app
 
 # Copy everything
