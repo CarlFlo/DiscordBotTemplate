@@ -30,6 +30,7 @@ func Ping(s *discordgo.Session, m *discordgo.MessageCreate, input structs.CmdInp
 		log.Printf("Error: %s", err)
 		return
 	}
+
 	// Caches the info that will be used to calculate the ping
 	cache[pingMsg.ID] = time
 
@@ -44,7 +45,6 @@ func Ping(s *discordgo.Session, m *discordgo.MessageCreate, input structs.CmdInp
 func Pong(s *discordgo.Session, mu *discordgo.MessageUpdate) {
 
 	if cachedTime, ok := cache[mu.ID]; ok {
-
 		// Removes that message id from the cache
 		delete(cache, mu.ID)
 
@@ -52,6 +52,6 @@ func Pong(s *discordgo.Session, mu *discordgo.MessageUpdate) {
 		newTime, _ := mu.EditedTimestamp.Parse()
 		diff := newTime.Sub(cachedTime)
 
-		s.ChannelMessageEdit(mu.ChannelID, mu.ID, fmt.Sprintf("Ping is %v", diff))
+		s.ChannelMessageEdit(mu.ChannelID, mu.ID, fmt.Sprintf("The ping is %v", diff))
 	}
 }
