@@ -2,11 +2,11 @@ package bot
 
 import (
 	"fmt"
-	"log"
 	"sort"
 	"strings"
 
 	"github.com/CarlFlo/GoDiscordBotTemplate/bot/structs"
+	"github.com/CarlFlo/bord"
 
 	"github.com/bwmarrin/discordgo"
 )
@@ -86,7 +86,7 @@ func commandTypeToString(key uint8) string {
 		cmdType = "Misc"
 	default:
 		cmdType = "Unknown"
-		log.Printf("A command group type is unknown: %d\n", key)
+		bord.Warn("A command group type is unknown: %d", key)
 	}
 	return cmdType
 }

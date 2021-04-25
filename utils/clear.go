@@ -1,10 +1,11 @@
 package utils
 
 import (
-	"log"
 	"os"
 	"os/exec"
 	"runtime"
+
+	"github.com/CarlFlo/bord"
 )
 
 // Clear for windows
@@ -25,6 +26,6 @@ func Clear() {
 
 	default:
 
-		log.Printf("Currently running on %s. No clear command for this type\n", currentOS)
+		bord.Warn("Currently running on %s. No clear command for this type", currentOS)
 	}
 }

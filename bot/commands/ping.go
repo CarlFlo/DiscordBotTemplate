@@ -2,11 +2,11 @@ package commands
 
 import (
 	"fmt"
-	"log"
 	"time"
 
 	"github.com/CarlFlo/GoDiscordBotTemplate/bot/commands/cmdutils"
 	"github.com/CarlFlo/GoDiscordBotTemplate/bot/structs"
+	"github.com/CarlFlo/bord"
 
 	"github.com/bwmarrin/discordgo"
 )
@@ -21,13 +21,13 @@ func Ping(s *discordgo.Session, m *discordgo.MessageCreate, input structs.CmdInp
 	// Send ping
 	pingMsg, err := cmdutils.SendDirectMessage(s, m, "Pinging...")
 	if err != nil {
-		log.Printf("Error: %s", err)
+		bord.Error("Error: %s", err)
 		return
 	}
 
 	time, err := discordgo.SnowflakeTimestamp(pingMsg.ID)
 	if err != nil {
-		log.Printf("Error: %s", err)
+		bord.Error("Error: %s", err)
 		return
 	}
 

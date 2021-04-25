@@ -1,11 +1,10 @@
 package commands
 
 import (
-	"log"
-
 	"github.com/CarlFlo/GoDiscordBotTemplate/bot/commands/cmdutils"
 	"github.com/CarlFlo/GoDiscordBotTemplate/bot/structs"
 	"github.com/CarlFlo/GoDiscordBotTemplate/config"
+	"github.com/CarlFlo/bord"
 
 	"github.com/bwmarrin/discordgo"
 )
@@ -14,7 +13,7 @@ import (
 func Reload(s *discordgo.Session, m *discordgo.MessageCreate, input structs.CmdInput) {
 
 	if err := config.ReloadConfig(); err != nil {
-		log.Printf("Could not reload config! %s", err)
+		bord.Error("Could not reload config! %s", err)
 		return
 	}
 

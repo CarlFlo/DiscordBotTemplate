@@ -12,6 +12,7 @@ import (
 	"github.com/CarlFlo/GoDiscordBotTemplate/bot"
 	"github.com/CarlFlo/GoDiscordBotTemplate/config"
 	"github.com/CarlFlo/GoDiscordBotTemplate/utils"
+	"github.com/CarlFlo/bord"
 )
 
 // https://discordapp.com/oauth2/authorize?&client_id=643191140849549333&scope=bot&permissions=37211200
@@ -20,13 +21,14 @@ func init() {
 
 	utils.Clear()
 	rand.Seed(time.Now().UTC().UnixNano())
-	log.Printf("Running on %s\n", runtime.GOOS)
+
+	bord.Info("Running on %s", runtime.GOOS)
 
 	if err := config.LoadConfiguration(); err != nil {
 		log.Fatalln(err)
 	}
 
-	log.Printf("Version %s\n", config.CONFIG.Version)
+	bord.Info("Version %s", config.CONFIG.Version)
 }
 
 func main() {
@@ -35,11 +37,11 @@ func main() {
 
 	time.Sleep(500 * time.Millisecond) // Added this sleep so the message under will come last
 	// Keeps bot from closing. Waits for CTRL-C
-	log.Printf("Press CTRL-C to initiate shutdown\n")
+	bord.Info("Press CTRL-C to initiate shutdown")
 	sc := make(chan os.Signal, 1)
 	signal.Notify(sc, syscall.SIGINT, syscall.SIGTERM, os.Interrupt)
 	<-sc
-	log.Printf("Shutting down!\n")
+	bord.Info("Shutting down!")
 
 	// Run cleanup code here
 	close(sc)

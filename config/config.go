@@ -3,7 +3,8 @@ package config
 import (
 	"encoding/json"
 	"io/ioutil"
-	"log"
+
+	"github.com/CarlFlo/bord"
 )
 
 // Redo this so this isnt required https://www.youtube.com/watch?v=y_eIBmt3JdY
@@ -52,7 +53,7 @@ func readConfig() error {
 	}
 
 	if CONFIG.DispConfOnStart {
-		log.Printf("Config:\n%s\n", string(file))
+		bord.Info("Config:\n%s", string(file))
 	}
 
 	return nil

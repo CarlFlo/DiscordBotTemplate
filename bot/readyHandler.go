@@ -2,14 +2,14 @@ package bot
 
 import (
 	"fmt"
-	"log"
 
+	"github.com/CarlFlo/bord"
 	"github.com/bwmarrin/discordgo"
 )
 
 func readyHandler(s *discordgo.Session, ready *discordgo.Ready) {
 
-	log.Printf("Bot is connected and present on %d servers\n", len(s.State.Guilds))
+	bord.Info("Bot is connected and present on %d servers", len(s.State.Guilds))
 
 	statusMessage := fmt.Sprintf("on %d servers", len(s.State.Guilds))
 
