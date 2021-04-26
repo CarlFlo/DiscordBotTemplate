@@ -1,7 +1,6 @@
 package main
 
 import (
-	"log"
 	"math/rand"
 	"os"
 	"os/signal"
@@ -25,7 +24,7 @@ func init() {
 	bord.Debug("Running on %s", runtime.GOOS)
 
 	if err := config.LoadConfiguration(); err != nil {
-		log.Fatalln(err)
+		bord.Fatal("Error loading configuration: %v", err)
 	}
 
 	bord.Debug("Version %s", config.CONFIG.Version)

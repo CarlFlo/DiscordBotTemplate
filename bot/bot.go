@@ -1,9 +1,8 @@
 package bot
 
 import (
-	"log"
-
 	"github.com/CarlFlo/GoDiscordBotTemplate/config"
+	"github.com/CarlFlo/bord"
 
 	"github.com/bwmarrin/discordgo"
 )
@@ -13,7 +12,7 @@ func StartBot() *discordgo.Session {
 
 	// Checks if bot token is present
 	if len(config.CONFIG.Token) == 0 {
-		log.Fatalln("ERROR! No token provided!")
+		bord.Fatal("ERROR! No token provided!")
 	}
 
 	// Creates the bot/session
@@ -33,7 +32,7 @@ func StartBot() *discordgo.Session {
 	// Attempts to open connection
 	err = session.Open()
 	if err != nil {
-		log.Fatalln(err)
+		bord.Fatal("%v", err)
 	}
 
 	// Returns session
