@@ -74,5 +74,11 @@ Running the bot will create a `config.json` file in the directory where it was r
 
 Input your **Token**, **OwnerID** and the bots **ClientID** (Used for the bot invite) in the configuration file.
 
+### Running
+
+You're able to build and run the bot with the included `makefile`.
+
+It is also possible to build or run it yourself with the `go run main.go` and `go build main.go` command.
+
 ## Todo
 
