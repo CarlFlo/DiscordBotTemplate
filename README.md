@@ -17,7 +17,6 @@
 ## About
 The project aims to create an easy to use project template for creating Discord bots in the [GO](https://golang.org/) programming language.
 
----
 ## Features
 
 - Works on Windows, Linux and Mac
@@ -36,7 +35,6 @@ The project aims to create an easy to use project template for creating Discord 
     - Admin command seperate from commands accessible for users
 - Statistics
     - Number of servers bot is active on
----
 
 ## Commands
 
@@ -53,7 +51,6 @@ These are the commands the are currently included in the bot
 * echo - Echoes back whatever message was sent with the command
 * help - Prints a list with all the commands and how to use them
 
----
 
 ## Setup
 
@@ -75,8 +72,6 @@ go mod download
 Running the bot will create a `config.json` file in the directory where it was run.
 
 Input your **Token**, **OwnerID** and the bots **ClientID** (Used for the bot invite) in the configuration file.
-
----
 
 ## Todo
 
