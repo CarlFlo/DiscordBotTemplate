@@ -78,7 +78,7 @@ Input your **Token**, **OwnerID** and the bots **ClientID** (Used for the bot in
 
 You're able to build and run the bot with the included `makefile`.
 
-It is also possible to build or run it yourself with the `go run main.go` and `go build main.go` command.
+It is also possible to build or run it yourself with the `go run main.go` and `go build main.go` command, respectively.
 
 ## Todo
 
