@@ -53,7 +53,7 @@ func readConfig() error {
 	}
 
 	if CONFIG.DispConfOnStart {
-		bord.Info("Config:\n%s", string(file))
+		bord.Debug("Config:\n%s", string(file))
 	}
 
 	return nil

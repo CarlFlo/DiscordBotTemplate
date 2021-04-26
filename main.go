@@ -22,13 +22,13 @@ func init() {
 	utils.Clear()
 	rand.Seed(time.Now().UTC().UnixNano())
 
-	bord.Info("Running on %s", runtime.GOOS)
+	bord.Debug("Running on %s", runtime.GOOS)
 
 	if err := config.LoadConfiguration(); err != nil {
 		log.Fatalln(err)
 	}
 
-	bord.Info("Version %s", config.CONFIG.Version)
+	bord.Debug("Version %s", config.CONFIG.Version)
 }
 
 func main() {
