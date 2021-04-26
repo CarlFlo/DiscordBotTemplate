@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/CarlFlo/GoDiscordBotTemplate/bot/commands/cmdutils"
-	"github.com/CarlFlo/GoDiscordBotTemplate/bot/structs"
+	"github.com/CarlFlo/DiscordBotTemplate/bot/commands/cmdutils"
+	"github.com/CarlFlo/DiscordBotTemplate/bot/structs"
 	"github.com/CarlFlo/bord"
 
 	"github.com/bwmarrin/discordgo"

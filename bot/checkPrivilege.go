@@ -1,7 +1,7 @@
 package bot
 
 import (
-	"github.com/CarlFlo/GoDiscordBotTemplate/config"
+	"github.com/CarlFlo/DiscordBotTemplate/config"
 )
 
 func isOwner(discordID string) bool {
