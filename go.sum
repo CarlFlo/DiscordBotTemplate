@@ -1,7 +1,5 @@
-github.com/CarlFlo/bord v0.0.0-20210425172423-4d3523f896d8 h1:Px9aOSMujJqiMeWU2dOMb83IlcpvJvszMv6cJa/5JrM=
-github.com/CarlFlo/bord v0.0.0-20210425172423-4d3523f896d8/go.mod h1:WKxZjqdiT3UX1yRWO/Igh0r8jR9ICOudK80YyWLTqtM=
-github.com/CarlFlo/bord v0.0.0-20210426084021-2b5a35638a4a h1:DnOMox0gDeHovdOf4u9qT1wPDmeTLsOvR7Y88F7kb/E=
-github.com/CarlFlo/bord v0.0.0-20210426084021-2b5a35638a4a/go.mod h1:WKxZjqdiT3UX1yRWO/Igh0r8jR9ICOudK80YyWLTqtM=
+github.com/CarlFlo/bord v1.0.0 h1:PJPgEmawM6qM3Chm/p7ORtz3J1KIMOzS6X1sDTGzCLo=
+github.com/CarlFlo/bord v1.0.0/go.mod h1:WKxZjqdiT3UX1yRWO/Igh0r8jR9ICOudK80YyWLTqtM=
 github.com/bwmarrin/discordgo v0.23.2 h1:BzrtTktixGHIu9Tt7dEE6diysEF9HWnXeHuoJEt2fH4=
 github.com/bwmarrin/discordgo v0.23.2/go.mod h1:c1WtWUGN6nREDmzIpyTp/iD3VYt4Fpx+bVyfBG7JE+M=
 github.com/gorilla/websocket v1.4.0 h1:WDFjx/TMzVgy9VdMMQi2K2Emtwi2QcUQsztZ/zLaH/Q=
