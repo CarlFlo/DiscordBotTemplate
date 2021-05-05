@@ -72,7 +72,7 @@ go mod download
 
 Running the bot will create a `config.json` file in the directory where it was run.
 
-Input your **Token**, **OwnerID** and the bots **ClientID** (Used for the bot invite) in the configuration file.
+Insert into the configuration file your bot token into the **Token** slot, discord user ID in the **OwnerID** slot and the bots discord ID in the **ClientID** slot (Used for the bot invite).
 
 ### Running
 
