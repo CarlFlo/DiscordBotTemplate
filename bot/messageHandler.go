@@ -3,9 +3,9 @@ package bot
 import (
 	"strings"
 
-	"github.com/CarlFlo/DiscordBotTemplate/bot/structs"
-	"github.com/CarlFlo/DiscordBotTemplate/config"
 	"github.com/CarlFlo/bord"
+	"github.com/CarlFlo/discordBotTemplate/bot/structs"
+	"github.com/CarlFlo/discordBotTemplate/config"
 
 	"github.com/bwmarrin/discordgo"
 )

@@ -8,10 +8,10 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/CarlFlo/DiscordBotTemplate/bot"
-	"github.com/CarlFlo/DiscordBotTemplate/config"
-	"github.com/CarlFlo/DiscordBotTemplate/utils"
 	"github.com/CarlFlo/bord"
+	"github.com/CarlFlo/discordBotTemplate/bot"
+	"github.com/CarlFlo/discordBotTemplate/config"
+	"github.com/CarlFlo/discordBotTemplate/utils"
 )
 
 // https://discordapp.com/oauth2/authorize?&client_id=643191140849549333&scope=bot&permissions=37211200

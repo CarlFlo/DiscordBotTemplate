@@ -6,10 +6,10 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/CarlFlo/DiscordBotTemplate/bot/commands/cmdutils"
-	"github.com/CarlFlo/DiscordBotTemplate/bot/structs"
-	"github.com/CarlFlo/DiscordBotTemplate/config"
 	"github.com/CarlFlo/bord"
+	"github.com/CarlFlo/discordBotTemplate/bot/commands/cmdutils"
+	"github.com/CarlFlo/discordBotTemplate/bot/structs"
+	"github.com/CarlFlo/discordBotTemplate/config"
 
 	"github.com/bwmarrin/discordgo"
 )

@@ -3,7 +3,7 @@ package structs
 import (
 	"strings"
 
-	"github.com/CarlFlo/DiscordBotTemplate/config"
+	"github.com/CarlFlo/discordBotTemplate/config"
 )
 
 // CmdInput holds a command

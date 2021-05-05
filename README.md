@@ -58,7 +58,7 @@ These are the commands the are currently included in the bot
 Clone the repo
 
 ```
-git clone https://github.com/CarlFlo/DiscordBotTemplate.git
+git clone https://github.com/CarlFlo/discordBotTemplate.git
 ```
 
 Install all the requirements

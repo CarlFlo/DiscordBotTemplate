@@ -1,4 +1,4 @@
-module github.com/CarlFlo/DiscordBotTemplate
+module github.com/CarlFlo/discordBotTemplate
 
 go 1.16
 
