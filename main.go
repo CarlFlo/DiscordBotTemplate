@@ -8,10 +8,10 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/CarlFlo/bord"
 	"github.com/CarlFlo/discordBotTemplate/bot"
 	"github.com/CarlFlo/discordBotTemplate/config"
 	"github.com/CarlFlo/discordBotTemplate/utils"
+	"github.com/CarlFlo/malm"
 )
 
 // https://discordapp.com/oauth2/authorize?&client_id=643191140849549333&scope=bot&permissions=37211200
@@ -21,13 +21,13 @@ func init() {
 	utils.Clear()
 	rand.Seed(time.Now().UTC().UnixNano())
 
-	bord.Debug("Running on %s", runtime.GOOS)
+	malm.Debug("Running on %s", runtime.GOOS)
 
 	if err := config.LoadConfiguration(); err != nil {
-		bord.Fatal("Error loading configuration: %v", err)
+		malm.Fatal("Error loading configuration: %v", err)
 	}
 
-	bord.Debug("Version %s", config.CONFIG.Version)
+	malm.Debug("Version %s", config.CONFIG.Version)
 }
 
 func main() {
@@ -36,11 +36,11 @@ func main() {
 
 	time.Sleep(500 * time.Millisecond) // Added this sleep so the message under will come last
 	// Keeps bot from closing. Waits for CTRL-C
-	bord.Info("Press CTRL-C to initiate shutdown")
+	malm.Info("Press CTRL-C to initiate shutdown")
 	sc := make(chan os.Signal, 1)
 	signal.Notify(sc, syscall.SIGINT, syscall.SIGTERM, os.Interrupt)
 	<-sc
-	bord.Info("Shutting down!")
+	malm.Info("Shutting down!")
 
 	// Run cleanup code here
 	close(sc)

@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"io/ioutil"
 
-	"github.com/CarlFlo/bord"
+	"github.com/CarlFlo/malm"
 )
 
 // Redo this so this isnt required https://www.youtube.com/watch?v=y_eIBmt3JdY
@@ -53,7 +53,7 @@ func readConfig() error {
 	}
 
 	if CONFIG.DispConfOnStart {
-		bord.Debug("Config:\n%s", string(file))
+		malm.Debug("Config:\n%s", string(file))
 	}
 
 	return nil

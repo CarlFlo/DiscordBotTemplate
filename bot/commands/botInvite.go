@@ -3,10 +3,10 @@ package commands
 import (
 	"fmt"
 
-	"github.com/CarlFlo/bord"
 	"github.com/CarlFlo/discordBotTemplate/bot/commands/cmdutils"
 	"github.com/CarlFlo/discordBotTemplate/bot/structs"
 	"github.com/CarlFlo/discordBotTemplate/config"
+	"github.com/CarlFlo/malm"
 
 	"github.com/bwmarrin/discordgo"
 )
@@ -15,7 +15,7 @@ import (
 func BotInvite(s *discordgo.Session, m *discordgo.MessageCreate, input structs.CmdInput) {
 
 	if len(config.CONFIG.BotInfo.ClientID) == 0 {
-		bord.Warn("ClientID not set in config file")
+		malm.Warn("ClientID not set in config file")
 		cmdutils.SendDirectMessage(s, m, "Unable to create bot invite. Contact the administrator")
 		return
 	}

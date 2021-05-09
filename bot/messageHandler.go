@@ -3,9 +3,9 @@ package bot
 import (
 	"strings"
 
-	"github.com/CarlFlo/bord"
 	"github.com/CarlFlo/discordBotTemplate/bot/structs"
 	"github.com/CarlFlo/discordBotTemplate/config"
+	"github.com/CarlFlo/malm"
 
 	"github.com/bwmarrin/discordgo"
 )
@@ -40,7 +40,7 @@ func messageHandler(s *discordgo.Session, m *discordgo.MessageCreate) {
 
 			// Checks if the user has permission to run the command
 			if command.requiredPermission == enumAdmin && !data.IsAdmin() {
-				bord.Info("(%s) '%s' tried to run command: '%s'", m.Author.ID, m.Author.Username, data.GetCommand())
+				malm.Info("(%s) '%s' tried to run command: '%s'", m.Author.ID, m.Author.Username, data.GetCommand())
 				return
 			}
 

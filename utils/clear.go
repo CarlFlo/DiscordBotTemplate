@@ -5,7 +5,7 @@ import (
 	"os/exec"
 	"runtime"
 
-	"github.com/CarlFlo/bord"
+	"github.com/CarlFlo/malm"
 )
 
 // Clear for windows
@@ -26,6 +26,6 @@ func Clear() {
 
 	default:
 
-		bord.Warn("Currently running on %s. No clear command for this type", currentOS)
+		malm.Warn("Currently running on %s. No clear command for this type", currentOS)
 	}
 }

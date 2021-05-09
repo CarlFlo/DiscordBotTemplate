@@ -6,10 +6,10 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/CarlFlo/bord"
 	"github.com/CarlFlo/discordBotTemplate/bot/commands/cmdutils"
 	"github.com/CarlFlo/discordBotTemplate/bot/structs"
 	"github.com/CarlFlo/discordBotTemplate/config"
+	"github.com/CarlFlo/malm"
 
 	"github.com/bwmarrin/discordgo"
 )
@@ -63,7 +63,7 @@ func Presence(s *discordgo.Session, m *discordgo.MessageCreate, input structs.Cm
 		file, err := os.OpenFile("presenceOutput.txt", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 
 		if err != nil {
-			bord.Error("Could not create presence output file: %s", err)
+			malm.Error("Could not create presence output file: %s", err)
 			return
 		}
 
@@ -71,7 +71,7 @@ func Presence(s *discordgo.Session, m *discordgo.MessageCreate, input structs.Cm
 		for _, data := range outputBuffer {
 			_, err = datawriter.WriteString(data + "\n")
 			if err != nil {
-				bord.Error("%s\n", err)
+				malm.Error("%s\n", err)
 			}
 		}
 

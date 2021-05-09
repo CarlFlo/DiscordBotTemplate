@@ -23,7 +23,7 @@ The project aims to create an easy to use project template for creating Discord 
     - Dockerfile included
 - Easy to customize and setup
     - Strightforward process for adding new commands and custom functionality
-- Powerful, flexable and detailed log messages with [Bord](https://github.com/CarlFlo/bord)
+- Powerful, flexable and detailed log messages with [Malm](https://github.com/CarlFlo/malm)
 - Dyanmic message handling
     - Channel binding
     - Toggle support for direct messages 

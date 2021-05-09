@@ -5,8 +5,8 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/CarlFlo/bord"
 	"github.com/CarlFlo/discordBotTemplate/bot/structs"
+	"github.com/CarlFlo/malm"
 
 	"github.com/bwmarrin/discordgo"
 )
@@ -86,7 +86,7 @@ func commandTypeToString(key uint8) string {
 		cmdType = "Misc"
 	default:
 		cmdType = "Unknown"
-		bord.Warn("A command group type is unknown: %d", key)
+		malm.Warn("A command group type is unknown: %d", key)
 	}
 	return cmdType
 }

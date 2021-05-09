@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/CarlFlo/bord"
 	"github.com/CarlFlo/discordBotTemplate/bot/commands/cmdutils"
 	"github.com/CarlFlo/discordBotTemplate/bot/structs"
+	"github.com/CarlFlo/malm"
 
 	"github.com/bwmarrin/discordgo"
 )
@@ -21,13 +21,13 @@ func Ping(s *discordgo.Session, m *discordgo.MessageCreate, input structs.CmdInp
 	// Send ping
 	pingMsg, err := cmdutils.SendDirectMessage(s, m, "Pinging...")
 	if err != nil {
-		bord.Error("Error: %s", err)
+		malm.Error("Error: %s", err)
 		return
 	}
 
 	time, err := discordgo.SnowflakeTimestamp(pingMsg.ID)
 	if err != nil {
-		bord.Error("Error: %s", err)
+		malm.Error("Error: %s", err)
 		return
 	}
 
