@@ -34,7 +34,7 @@ func main() {
 
 	session := bot.StartBot()
 
-	time.Sleep(500 * time.Millisecond) // Added this sleep so the message under will come last
+	time.Sleep(500 * time.Millisecond) // Added this sleep so the messages below will come last
 	// Keeps bot from closing. Waits for CTRL-C
 	malm.Info("Press CTRL-C to initiate shutdown")
 	sc := make(chan os.Signal, 1)
