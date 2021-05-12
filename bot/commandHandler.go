@@ -1,11 +1,11 @@
 package bot
 
 import (
-	"fmt"
 	"unicode"
 
 	"github.com/CarlFlo/discordBotTemplate/bot/commands"
 	"github.com/CarlFlo/discordBotTemplate/bot/structs"
+	"github.com/CarlFlo/malm"
 
 	"github.com/bwmarrin/discordgo"
 )
@@ -88,7 +88,7 @@ func validateKeys() {
 	for key := range validCommands {
 		for _, char := range key {
 			if !unicode.IsLower(char) {
-				panic(fmt.Sprintf("key: '%s' contains one or more non lowercase characters => '%c'", key, char))
+				malm.Fatal("key: '%s' contains one or more non lowercase characters: '%c'", key, char)
 			}
 		}
 	}
