@@ -24,16 +24,16 @@ The project aims to create an easy to use project template for creating Discord 
 - Easy to customize and setup
     - Strightforward process for adding new commands and custom functionality
 - Powerful, flexable and detailed log messages with [Malm](https://github.com/CarlFlo/malm)
-- Dyanmic message handling
+- Dynamic message handling
     - Channel binding
     - Toggle support for direct messages 
 - Built in bot link invite creator
 - User and admin commands
     - Permission check
 - Help is generated automatically
-    - Alphabetically sorted into categories for readability
-    - Supports help syntax for individual messages
-    - Admin command seperate from commands accessible for users
+    - Commands alphabetically sorted into categories for readability
+    - Supports help syntax for individual commands
+    - Admin command seperate and won't show for users
 - Statistics
     - Number of servers bot is active on
 
