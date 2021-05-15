@@ -89,8 +89,8 @@ func createConfig() error {
 
 // LoadConfiguration loads the configuration file into memory
 func LoadConfiguration() error {
-	err := readConfig()
-	if err != nil {
+
+	if err := readConfig(); err != nil {
 		if err = createConfig(); err != nil {
 			return err
 		}
