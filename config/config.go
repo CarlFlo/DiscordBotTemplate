@@ -73,7 +73,7 @@ func createConfig() error {
 		AllowDirectMessages: true,
 		BotInfo: botInfo{
 			ClientID:   "",
-			Permission: 37211200,
+			Permission: 2184694848,
 		},
 		MessageProcessing: messageProcessing{
 			MessageLengthLimit:    1850, // The meximum length a send message can be before it will be split.
